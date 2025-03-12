@@ -10,13 +10,14 @@ document.getElementById('emailForm').addEventListener('submit', function(event) 
         // Store the token in localStorage
         localStorage.setItem('accessToken', accessToken);
 
-        // Hide the form
-        document.getElementById('emailForm').style.display = 'none';
+        // Hide the message (if any)
+        document.getElementById('message').textContent = '';
 
         // Show the iframe
         document.getElementById('iframeContainer').style.display = 'block';
     } else {
-        alert("Email not found. Please try again.");
+        // Show an error message
+        document.getElementById('message').textContent = 'Email not found. Please try again.';
     }
 });
 

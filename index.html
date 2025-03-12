@@ -9,6 +9,10 @@
             display: none; /* Hide the iframe by default */
             margin-top: 20px;
         }
+        #message {
+            color: red;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -19,6 +23,10 @@
         <button type="submit">Submit</button>
     </form>
 
+    <!-- Message for invalid email -->
+    <div id="message"></div>
+
+    <!-- Iframe container -->
     <div id="iframeContainer">
         <h2>Welcome to the Form!</h2>
         <iframe src="https://ee.kobotoolbox.org/i/Y0BfeHo9" width="800" height="600"></iframe>
@@ -44,13 +52,14 @@
 
             // Check if the email is in the list
             if (validEmails.includes(enteredEmail)) {
-                // Hide the form
-                document.getElementById('emailForm').style.display = 'none';
+                // Hide the message (if any)
+                document.getElementById('message').textContent = '';
 
                 // Show the iframe
                 document.getElementById('iframeContainer').style.display = 'block';
             } else {
-                alert("Email not found. Please try again.");
+                // Show an error message
+                document.getElementById('message').textContent = 'Email not found. Please try again.';
             }
         });
     </script>
