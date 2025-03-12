@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification and Iframe</title>
+    <style>
+        #iframeContainer {
+            display: none; /* Hide the iframe by default */
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Please Enter Your Email</h1>
+    <form id="emailForm">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="iframeContainer">
+        <h2>Welcome to the Form!</h2>
+        <iframe src="https://ee.kobotoolbox.org/i/Y0BfeHo9" width="800" height="600"></iframe>
+    </div>
+
+    <script>
+        // List of valid emails
+        const validEmails = [
+            "ayu.vilaily@asean.org",
+            "jeerana.noymanee@asean.org",
+            "ung.srengkong@asean.org",
+            "gary.lim@asean.org",
+            "rina@asean.org",
+            "martin.pradipto@asean.org"
+        ];
+
+        // Form submission handler
+        document.getElementById('emailForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form from submitting the traditional way
+
+            // Get the entered email
+            const enteredEmail = document.getElementById('email').value;
+
+            // Check if the email is in the list
+            if (validEmails.includes(enteredEmail)) {
+                // Hide the form
+                document.getElementById('emailForm').style.display = 'none';
+
+                // Show the iframe
+                document.getElementById('iframeContainer').style.display = 'block';
+            } else {
+                alert("Email not found. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>
